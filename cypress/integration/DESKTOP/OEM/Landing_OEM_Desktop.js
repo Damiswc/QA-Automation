@@ -11,14 +11,7 @@ describe('Landing Page_OEM_Desktop', () => {
 
     })
 
-//FALTA CHEQUEO DE CONTENIDO
-//    it('Chequeo de contenido', ()=> {
-
-//    cy.contains('Elegí un concesionario').click()
-
-//    })
-
-
+//FALTA CHEQUEO DE CONTENIDO ////////////////////////
     describe('Navegador',()=>{
 
 
