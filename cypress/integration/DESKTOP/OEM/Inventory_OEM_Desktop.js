@@ -64,7 +64,7 @@ describe('Inventario OEM', ()=>{
 
 //Acá termina el navegador y empieza filtros
 
-    describe('Filtros',()=>{ //ESTO NO FUNCIONA
+    describe('Filtros',()=>{ 
 
         it('Recargo la página',()=>{
             cy.visit('https://rn9-oem-test.simplitec.io/inventory')
@@ -72,7 +72,7 @@ describe('Inventario OEM', ()=>{
 
 
 
-            it('Ordenar por: precio más bajo / alto',()=>{         
+            it.skip('Ordenar por: precio más bajo / alto',()=>{         
 
                 cy.get('.relative.inline-block.text-left').click()
                 cy.contains('Precio más alto').click()   
@@ -146,11 +146,22 @@ describe('Inventario OEM', ()=>{
 
         })
 
+        /////
+
 
 
         it.skip('Barra de precio: Precio sugerido al público', ()=>{
-            cy.get('$accordion-body').parent().click()
+
+            cy.contains('Precio sugerido al público').parent().should('have.css', 'display', 'flex').click()
         })
+
+
+
+
+
+
+
+
 
         it.skip('Filtro: Carrocería',()=>{
             cy.get('cursor-pointer.svelte-123ma4c').contains('Auto').check()
@@ -168,6 +179,29 @@ describe('Inventario OEM', ()=>{
         })
 
     })
+
+
+    //SELECCIÓN DE VEHÍCULO
+
+   describe.skip('Seleccion reiterada de vehículos en inventario',()=>{
+
+        it('Selección del primer vehículo',()=>{
+            cy.get('.car-card').first().click()
+            cy.get('.exit-icon.svelte-1kafwwv').click()
+         })
+
+
+         it('Selección del segundo vehículo',()=>{
+            cy.get('.car-card').last().click()
+            cy.get('.exit-icon.svelte-1kafwwv').click()
+
+         })
+
+
+    })
+    
+    
+
 
     //FOOTER
 
